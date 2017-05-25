@@ -1,0 +1,39 @@
+page-sign-in {
+
+  .sign-in-logo {
+    padding-top: 15%;
+  }
+
+  .sign-in-text {
+    font-weight: 200;
+  }
+
+  .sign-in-form-icon {
+    padding-right: 10px;
+  }
+
+  .sign-in-forgot {
+    a {
+      text-decoration: none;
+      color: grey;
+    }
+    font-size: 10px;
+    margin-bottom: 15px;
+    padding: 0 25px 0 0;
+  }
+
+  .sign-in-social {
+    font-size: 30px;
+  }
+
+  .sign-in-button {
+    max-width: 100%;
+    margin-top: 25%;
+  }
+
+  .sign-in-tac {
+    font-size: 10px;
+    color: grey;
+  }
+
+}
