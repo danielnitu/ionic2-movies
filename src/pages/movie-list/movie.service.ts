@@ -10,13 +10,15 @@ import { Movie } from './movie';
 
 @Injectable()
 export class MovieService {
-  private movieUrl = 'https://api.themoviedb.org/3/movie/popular?api_key=4c58e824f4479783760326a036364fd5&language=en-US&page=1'
+  private url = 'https://api.themoviedb.org/3/movie/'
+  private key = '?api_key=4c58e824f4479783760326a036364fd5&language=en-US&page=1'
+  // private listType = ['top_rated', 'popular', 'upcoming']
 
   constructor (private http: Http) {}
 
-  getMovies(): Observable<Movie[]> {
+  getMovies(listType: string): Observable<Movie[]> {
     return this.http
-      .get(this.movieUrl)
+      .get((this.url + listType + this.key))
       .map(this.handleResponse);
   }
 
@@ -30,7 +32,8 @@ export class MovieService {
     })
 
     // Limit to 10 results as API accepts 40 hits / 10 seconds
-    results.length = 3;
+    if (results.length > 10)
+      results.length = 3;
     return results;
   }
 }

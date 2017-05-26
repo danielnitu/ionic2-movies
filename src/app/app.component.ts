@@ -14,7 +14,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage:any = SignInPage;
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string, icon: string, component?: any}>;
 
   constructor(
     public platform: Platform,
@@ -30,16 +30,19 @@ export class MyApp {
     });
 
     this.pages = [
-      {title: 'Movie List', component: MovieListPage},
-      {title: 'Log Out', component: SignInPage}
+      {title: 'Movie List', icon: 'list-box', component: MovieListPage},
+      {title: 'Account', icon: 'person'},
+      {title: 'Log Out',  icon: 'exit', component: SignInPage}
     ]
   }
 
   openPage(page) {
-    // close the menu when clicking a link from the menu
-    this.menu.close();
-    // navigate to the new page if it is not the current page
-    this.nav.setRoot(page.component);
+    if (page.component) {
+      // close the menu when clicking a link from the menu
+      this.menu.close();
+      // navigate to the new page if it is not the current page
+      this.nav.setRoot(page.component);
+    }
   }
 }
 

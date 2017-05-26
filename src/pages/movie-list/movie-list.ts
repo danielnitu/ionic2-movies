@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Movie } from './movie';
@@ -9,7 +9,8 @@ import { MovieDetailPage } from '../movie-detail/movie-detail';
 @Component({
   selector: 'page-movie-list',
   templateUrl: 'movie-list.html',
-  providers: [ MovieService ]
+  providers: [ MovieService ],
+  inputs: ['listType']
 })
 export class MovieListPage implements OnInit {
   errorMessage: string;
@@ -19,11 +20,13 @@ export class MovieListPage implements OnInit {
   constructor(private movieService: MovieService, public navCtrl: NavController, public navParams: NavParams) {
   }
 
-  ngOnInit() { this.getMovies(); }
+  ngOnInit() {
+    this.getMovies('popular'); 
+  }
 
-  getMovies() {
+  getMovies(listType: string) {
     this.movieService
-      .getMovies()
+      .getMovies(listType)
       .subscribe(
         movies => this.movies = movies,
         error => this.errorMessage = <any>error);
