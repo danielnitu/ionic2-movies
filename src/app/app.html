@@ -10,7 +10,7 @@
     <ion-row justify-content-center>
       <img class="menu-logo" src="assets/logo.png">
     </ion-row>
-    <ion-list class="menu-buttons-group">
+    <ion-list class="menu-buttons-group" no-lines>
       <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
         <ion-icon name="{{ p.icon }}" item-left large></ion-icon>
         {{p.title}}

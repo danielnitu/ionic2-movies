@@ -33,7 +33,7 @@ export class MovieService {
 
     // Limit to 10 results as API accepts 40 hits / 10 seconds
     if (results.length > 10)
-      results.length = 3;
+      results.length = 10;
     return results;
   }
 }

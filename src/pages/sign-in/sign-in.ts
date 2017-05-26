@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { 
-  AlertController, 
-  LoadingController, 
-  Loading, 
-  IonicPage, 
-  NavController, 
-  NavParams 
-} from 'ionic-angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IonicPage, NavController, ToastController } from 'ionic-angular';
 
 import { MovieListPage } from '../movie-list/movie-list';
 
@@ -16,22 +10,35 @@ import { MovieListPage } from '../movie-list/movie-list';
   templateUrl: 'sign-in.html',
 })
 export class SignInPage {
+  signInForm: FormGroup;
+  signInError: boolean = false;
 
-  loading: Loading;
-
-  constructor(
-    public navCtrl: NavController, 
-    public navParams: NavParams, 
-    public alertCtrl: AlertController, 
-    public loadingCtrl: LoadingController) {
+  constructor(public toastCtrl: ToastController, public navCtrl: NavController, public formBuilder: FormBuilder) {
+    this.signInForm = formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignInPage');
   }
 
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'All fields must be completed.',
+      duration: 2000,
+      position: 'top'
+    });
+    toast.present();
+  }
+
   signin(event) {
-    this.navCtrl.setRoot(MovieListPage);
+    if (this.signInForm.valid) {
+      this.navCtrl.setRoot(MovieListPage);
+    } else {
+      this.presentToast()
+    }
   }
 
 }
