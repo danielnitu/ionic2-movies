@@ -19,7 +19,11 @@ export class SignInPage {
 
   loading: Loading;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+  constructor(
+    public navCtrl: NavController, 
+    public navParams: NavParams, 
+    public alertCtrl: AlertController, 
+    public loadingCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -27,7 +31,7 @@ export class SignInPage {
   }
 
   signin(event) {
-    this.navCtrl.push(MovieListPage);
+    this.navCtrl.setRoot(MovieListPage);
   }
 
 }
