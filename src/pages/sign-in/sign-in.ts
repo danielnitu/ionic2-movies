@@ -8,7 +8,7 @@ import {
   NavParams 
 } from 'ionic-angular';
 
-import { HomePage } from '../home/home';
+import { MovieListPage } from '../movie-list/movie-list';
 
 @IonicPage()
 @Component({
@@ -27,7 +27,7 @@ export class SignInPage {
   }
 
   signin(event) {
-    this.navCtrl.push(HomePage);
+    this.navCtrl.push(MovieListPage);
   }
 
 }

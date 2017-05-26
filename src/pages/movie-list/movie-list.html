@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Movies</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let movie of movies">
+
+    <ion-item>
+      <h2>{{ movie.title }}</h2>
+    </ion-item>
+
+    <img src="{{ movie['poster_path'] }}"/>
+
+    <ion-card-content>
+      <p>
+        {{ movie.overview | slice: 0:110 }}...
+      </p>
+    </ion-card-content>
+
+    <ion-row align-items-center>
+      <ion-col col-5>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>{{ movie['vote_count'] }}</div>
+        </button>
+      </ion-col>
+
+      <ion-col>
+        <ion-row>
+          <ion-icon class="movie-star" name="star"></ion-icon>
+          <div>{{ movie['vote_average'] }} Average Rating</div>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-content>
