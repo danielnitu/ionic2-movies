@@ -10,17 +10,19 @@
 <ion-content>
   <ion-card *ngFor="let movie of movies">
 
-    <ion-item>
-      <h2>{{ movie.title }}</h2>
-    </ion-item>
+    <div (click)='getDetails($event, movie)'>
+      <ion-item>
+        <h2>{{ movie.title }}</h2>
+      </ion-item>
 
-    <img src="{{ movie['poster_path'] }}"/>
+      <img src="{{ movie['poster_path'] }}"/>
 
-    <ion-card-content>
-      <p>
-        {{ movie.overview | slice: 0:110 }}...
-      </p>
-    </ion-card-content>
+      <ion-card-content>
+        <p>
+          {{ movie.overview | slice: 0:110 }}...
+        </p>
+      </ion-card-content>
+    </div>
 
     <ion-row align-items-center>
       <ion-col col-5>

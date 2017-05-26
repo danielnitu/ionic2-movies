@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!movie">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <h1>{{ movie.title }}</h1>
+  <img src="{{ movie['poster_path'] }}">
+  <h6>{{ movie.overview }}</h6>
+</ion-content>

@@ -6,16 +6,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { SignInPage } from '../pages/sign-in/sign-in';
 import { MovieListPage } from '../pages/movie-list/movie-list';
+import { MovieDetailPage } from '../pages/movie-detail/movie-detail';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     SignInPage,
-    MovieListPage
+    MovieListPage,
+    MovieDetailPage
   ],
   imports: [
     BrowserModule,
@@ -26,9 +26,9 @@ import { MovieListPage } from '../pages/movie-list/movie-list';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     SignInPage,
-    MovieListPage
+    MovieListPage,
+    MovieDetailPage
   ],
   providers: [
     StatusBar,

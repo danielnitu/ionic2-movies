@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Movie } from './movie';
-import { MovieService } from './movie.service'; 
+import { MovieService } from './movie.service';
+import { MovieDetailPage } from '../movie-detail/movie-detail'; 
 
 @IonicPage()
 @Component({
@@ -26,6 +27,12 @@ export class MovieListPage implements OnInit {
       .subscribe(
         movies => this.movies = movies,
         error => this.errorMessage = <any>error);
+  }
+
+  getDetails(event, movie) {
+    this.navCtrl.push(MovieDetailPage, {
+      movie: movie
+    });
   }
 
   ionViewDidLoad() {
